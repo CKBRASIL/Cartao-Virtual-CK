@@ -1,45 +1,36 @@
-// Seleção de elementos para a música
 const music = document.getElementById('bg-music');
 const musicIcon = document.getElementById('music-icon');
 const musicControl = document.getElementById('music-control');
 
-/**
- * Função disparada ao clicar no Splash Screen
- * Isso inicia a música e revela o cartão
- */
 function startApp() {
     const splash = document.getElementById('splash-screen');
     const mainCard = document.querySelector('.main-card');
     const buttons = document.querySelectorAll('.icons-grid a');
 
-    // 1. Inicia a música (O navegador permite agora pois houve um clique)
-    if (music) {
-        music.volume = 0.4; // Volume em 40% para não assustar
-        music.play().catch(err => console.log("Erro ao tocar música:", err));
-        musicControl.style.display = 'flex'; // Mostra o botão de mute
+    // Tocar música com volume seguro
+    if(music) {
+        music.volume = 0.3;
+        music.play().catch(e => console.log("Audio blocked"));
+        musicControl.style.display = 'flex';
     }
 
-    // 2. Inicia o desvanecimento do Splash Screen
+    // Esconder Splash
     splash.style.opacity = '0';
-
     setTimeout(() => {
         splash.style.visibility = 'hidden';
         
-        // 3. Revela a placa principal
+        // Mostrar Card Principal
         mainCard.classList.add('card-appear');
 
-        // 4. Animação em cascata dos botões
+        // Animação dos botões um a um
         buttons.forEach((btn, index) => {
             setTimeout(() => {
                 btn.classList.add('show');
-            }, 300 + (index * 100));
+            }, 400 + (index * 120));
         });
     }, 800);
 }
 
-/**
- * Função para Alternar o som (Mute/Unmute)
- */
 function toggleMusic() {
     if (music.paused) {
         music.play();
@@ -50,9 +41,6 @@ function toggleMusic() {
     }
 }
 
-/**
- * Função para Gerar e Baixar o Contato (VCard)
- */
 function downloadVCard() {
     const vcard = `BEGIN:VCARD
 VERSION:3.0
@@ -69,15 +57,8 @@ END:VCARD`;
     const link = document.createElement('a');
     link.href = url;
     link.download = 'Danielle-CK-Brasil.vcf';
+    document.body.appendChild(link);
     link.click();
-    
-    // Limpeza de memória
+    document.body.removeChild(link);
     window.URL.revokeObjectURL(url);
-}
-
-// Registro automático do Service Worker para o PWA (Opcional se já estiver no HTML)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js').catch(err => console.log(err));
-    });
 }
