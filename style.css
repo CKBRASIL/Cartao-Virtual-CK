@@ -1,6 +1,6 @@
 :root {
-    --red-ck: #FF3B3F; /* Vermelho ajustado para melhor contraste */
-    --industrial-silver: #B0B0B0; /* Cinza claro acessível (Nível AA) */
+    --red-ck: #FF3B3F; 
+    --industrial-silver: #B0B0B0; 
     --pure-white: #FFFFFF;
     --dark-plate: #111111;
 }
@@ -43,85 +43,118 @@ body {
 .progress { width: 0%; height: 100%; background: var(--red-ck); animation: load 1.5s forwards; }
 .loading-text { font-size: 0.7rem; color: #666; margin-top: 15px; letter-spacing: 4px; font-weight: 700; text-align: center;}
 
-/* PLACA PRINCIPAL */
+/* PLACA PRINCIPAL - MOBILE */
 .main-card {
     background: linear-gradient(145deg, #181818, #050505);
-    width: 100%;
-    max-width: 460px;
+    width: 95%;
+    max-width: 440px;
     border-radius: 28px;
     position: relative;
-    padding: 60px 35px;
+    padding: 50px 25px;
     border: 1px solid #111;
     box-shadow: 0 50px 100px rgba(0, 0, 0, 0.9);
     transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.8s ease;
 }
 
-/* PARA FUSOS */
+/* PARAFUSOS */
 .screw { position: absolute; width: 12px; height: 12px; background: radial-gradient(circle, #444, #000); border-radius: 50%; }
-.top-left { top: 20px; left: 20px; } .top-right { top: 20px; right: 20px; }
-.bottom-left { bottom: 20px; left: 20px; } .bottom-right { bottom: 20px; right: 20px; }
+.top-left { top: 15px; left: 15px; } .top-right { top: 15px; right: 15px; }
+.bottom-left { bottom: 15px; left: 15px; } .bottom-right { bottom: 15px; right: 15px; }
 
 /* BRANDING */
-.brand-section { text-align: center; margin-bottom: 40px; }
-.main-logo { max-width: 220px; margin-bottom: 20px; }
-.neon-line { width: 45px; height: 3px; background: var(--red-ck); margin: 0 auto 20px; box-shadow: 0 0 10px var(--red-ck); }
-.tagline { font-size: 0.85rem; letter-spacing: 3px; font-weight: 700; color: var(--industrial-silver); line-height: 1.5; }
-.tagline span { color: var(--red-ck); }
-.product-pills { font-size: 0.65rem; color: #444; margin-top: 12px; font-weight: 900; letter-spacing: 1.5px; }
+.brand-section { text-align: center; margin-bottom: 30px; }
+.main-logo { max-width: 200px; margin-bottom: 15px; }
+.neon-line { width: 45px; height: 3px; background: var(--red-ck); margin: 0 auto 15px; box-shadow: 0 0 10px var(--red-ck); }
 
-/* TEXTOS ACESSÍVEIS */
-.about-box { background: rgba(255,255,255,0.02); padding: 25px; border-radius: 18px; margin-bottom: 35px; border: 1px solid rgba(255,255,255,0.05); }
-.welcome-text { font-size: 1rem; line-height: 1.8; color: #D1D1D1; text-align: left; }
+/* AUMENTO DA TAGLINE */
+.tagline { 
+    font-size: 1.1rem; /* Aumentado */
+    letter-spacing: 2px; 
+    font-weight: 700; 
+    color: var(--industrial-silver); 
+    line-height: 1.4; 
+}
+.tagline span { color: var(--red-ck); }
+.product-pills { 
+    font-size: 0.85rem; /* Aumentado */
+    color: #444; 
+    margin-top: 12px; 
+    font-weight: 900; 
+    letter-spacing: 1.5px; 
+}
+
+/* TEXTOS BOAS VINDAS - AUMENTADOS */
+.about-box { 
+    background: rgba(255,255,255,0.02); 
+    padding: 22px; 
+    border-radius: 18px; 
+    margin-bottom: 30px; 
+    border: 1px solid rgba(255,255,255,0.05); 
+}
+.welcome-text { 
+    font-size: 1.15rem; /* Aumentado */
+    line-height: 1.6; 
+    color: #D1D1D1; 
+    text-align: left; 
+}
 .red-bold { color: var(--red-ck); font-weight: 700; }
 strong { color: var(--pure-white); }
 
 /* DIVIDER */
-.divider-container { display: flex; align-items: center; margin-bottom: 20px; }
+.divider-container { display: flex; align-items: center; margin-bottom: 15px; }
 .divider-container .line { flex: 1; height: 1px; background: #222; }
-.divider-container span { font-size: 0.65rem; margin: 0 12px; color: #555; font-weight: 900; letter-spacing: 3px; }
+.divider-container span { 
+    font-size: 0.8rem; /* Aumentado */
+    margin: 0 12px; 
+    color: #555; 
+    font-weight: 900; 
+    letter-spacing: 3px; 
+}
 
-/* GRID DE ÍCONES - EFEITO VAZADO COM LUMINESCÊNCIA */
-.icons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 35px; }
+/* GRID DE ÍCONES */
+.icons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 30px; }
 
 .icon-btn {
     background: transparent;
     border: 1px solid #333;
-    padding: 22px 5px;
+    padding: 20px 5px;
     border-radius: 16px;
     text-decoration: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0; transform: translateY(20px); /* Para animação de entrada */
+    opacity: 0; transform: translateY(20px);
 }
 
-.icon-btn i { font-size: 1.7rem; color: #D1D1D1; margin-bottom: 12px; transition: 0.3s; }
-.icon-btn span { font-size: 0.65rem; color: var(--industrial-silver); font-weight: 700; letter-spacing: 1px; }
+.icon-btn i { font-size: 1.6rem; color: #D1D1D1; margin-bottom: 10px; transition: 0.3s; }
+.icon-btn span { 
+    font-size: 0.8rem; /* Aumentado */
+    color: var(--industrial-silver); 
+    font-weight: 700; 
+    letter-spacing: 0.5px; 
+}
 
-/* HOVER: EFEITO NEON */
+/* HOVER */
 .icon-btn:hover, .icon-btn:active {
     border-color: var(--red-ck);
     background: rgba(255, 59, 63, 0.05);
     transform: translateY(-5px);
     box-shadow: 0 0 20px rgba(255, 59, 63, 0.2);
 }
-.icon-btn:hover i { 
-    color: var(--red-ck); 
-    text-shadow: 0 0 15px var(--red-ck); /* Luminescência no ícone */
-}
+.icon-btn:hover i { color: var(--red-ck); text-shadow: 0 0 15px var(--red-ck); }
 .icon-btn:hover span { color: var(--pure-white); }
 
-/* BOTÃO SALVAR (CALL TO ACTION) */
+/* BOTÃO SALVAR - AUMENTADO */
 .save-btn {
     width: 100%;
-    padding: 22px;
+    padding: 20px;
     background: var(--red-ck);
     border: none;
     color: var(--pure-white);
     border-radius: 16px;
     font-weight: 900;
-    font-size: 1.1rem;
+    font-size: 1.25rem; /* Aumentado */
     letter-spacing: 3px;
     cursor: pointer;
     box-shadow: 0 10px 30px rgba(255, 59, 63, 0.3);
@@ -143,12 +176,21 @@ strong { color: var(--pure-white); }
 
 @keyframes load { to { width: 100%; } }
 
-/* RESPONSIVIDADE DESKTOP */
+/* RESPONSIVIDADE DESKTOP - PAINEL DIMINUÍDO E CENTRALIZADO */
 @media (min-width: 1024px) {
-    .main-card { max-width: 900px; padding: 80px; }
-    .content-wrapper { display: flex; align-items: center; gap: 80px; }
-    .brand-section { flex: 1; border-right: 1px solid #222; padding-right: 80px; margin-bottom: 0; }
-    .info-section { flex: 1.4; }
-    .main-logo { max-width: 280px; }
-    .tagline { font-size: 1rem; }
+    .main-card { 
+        max-width: 720px; /* Diminuído para 720px para centralizar melhor */
+        padding: 50px 60px; 
+    }
+    .content-wrapper { display: flex; align-items: center; gap: 50px; }
+    .brand-section { 
+        flex: 1; 
+        border-right: 1px solid #222; 
+        padding-right: 50px; 
+        margin-bottom: 0; 
+    }
+    .info-section { flex: 1.2; }
+    .main-logo { max-width: 240px; }
+    .tagline { font-size: 1.2rem; }
+    .welcome-text { font-size: 1.2rem; }
 }
