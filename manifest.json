@@ -1,5 +1,5 @@
 {
-    "name": "CK Brasil | Soluções Industriais",
+    "name": "CK Brasil",
     "short_name": "CK Brasil",
     "description": "Suprimentos e Soluções de Alta Performance",
     "start_url": "index.html",
@@ -11,13 +11,13 @@
             "src": "assets/favicon_io/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
         },
         {
             "src": "assets/favicon_io/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
         }
     ]
 }
