@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CK Brasil | Soluções Industriais</title>
 
-    <!-- FAVICONS E PWA -->
+    <!-- PWA & FAVICONS (Ajustados para assets/favicon_io) -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#ED3237">
+    <meta name="theme-color" content="#FF3B3F">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,17 +20,17 @@
 </head>
 <body>
 
-    <!-- Splash Screen -->
-    <div id="splash-screen" onclick="startApp()">
+    <!-- SPLASH SCREEN / ACIONADOR DE MÚSICA -->
+    <div id="splash-screen" onclick="startApp()" aria-label="Clique para entrar no cartão virtual">
         <div class="splash-content">
-            <img src="assets/logo.png" class="splash-logo">
+            <img src="assets/logo.png" class="splash-logo" alt="Logo CK Brasil">
             <div class="loading-bar"><div class="progress"></div></div>
             <p class="loading-text">CLIQUE PARA ENTRAR</p>
         </div>
     </div>
 
-    <!-- Controle de Som -->
-    <div id="music-control" onclick="toggleMusic()">
+    <!-- CONTROLE DE ÁUDIO -->
+    <div id="music-control" onclick="toggleMusic()" role="button" aria-label="Alternar música">
         <i class="fas fa-volume-up" id="music-icon"></i>
     </div>
     <audio id="bg-music" loop>
@@ -38,27 +40,28 @@
     <div class="carbon-bg"></div>
 
     <main class="main-card hidden-start">
+        <!-- Detalhes Industriais -->
         <div class="screw top-left"></div>
         <div class="screw top-right"></div>
         <div class="screw bottom-left"></div>
         <div class="screw bottom-right"></div>
 
         <div class="content-wrapper">
-            <!-- LADO ESQUERDO: BRANDING -->
+            <!-- BRANDING -->
             <section class="brand-section">
                 <div class="logo-container">
                     <img src="assets/logo.png" alt="CK Brasil" class="main-logo">
                     <div class="neon-line"></div>
-                    <p class="tagline">SOLUÇÕES E SUPRIMENTOS DE <br><span class="red-text">ALTA PERFORMANCE</span></p>
-                    <p class="product-list">DISCOS • BROCAS • MÁQUINAS • EPIs</p>
+                    <p class="tagline">SOLUÇÕES E SUPRIMENTOS DE <br><span>ALTA PERFORMANCE</span></p>
+                    <p class="product-pills">DISCOS • BROCAS • MÁQUINAS • EPIs</p>
                 </div>
             </section>
 
-            <!-- LADO DIREITO: TEXTO E LINKS -->
+            <!-- INFO & LINKS -->
             <section class="info-section">
                 <div class="about-box">
                     <p class="welcome-text">
-                        Na <span class="red-text-bold">CK Brasil</span>, nossa missão é oferecer produtos de alta qualidade em <strong>Discos de Corte, Brocas, Químicos, Máquinas, EPIs e Lixas</strong>. Precisão e durabilidade que elevam a performance dos seus projetos.
+                        Na <span class="red-bold">CK Brasil</span>, nossa missão é oferecer produtos de alta qualidade em <strong>Discos de Corte, Brocas, Químicos, Máquinas, EPIs e Lixas</strong>. Precisão e durabilidade que elevam a performance dos seus projetos.
                     </p>
                 </div>
 
@@ -69,7 +72,7 @@
                 </div>
 
                 <nav class="icons-grid">
-                    <a href="https://api.whatsapp.com/send?phone=5511954627266&text=Olá,%20vi%20o%20cartão%20virtual" class="icon-btn highlight">
+                    <a href="https://api.whatsapp.com/send?phone=5511954627266&text=Olá" class="icon-btn">
                         <i class="fab fa-whatsapp"></i><span>WHATSAPP</span>
                     </a>
                     <a href="https://ckbrasil.com.br" class="icon-btn">
@@ -95,5 +98,10 @@
     </main>
 
     <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
 </body>
 </html>
